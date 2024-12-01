@@ -18,8 +18,25 @@ func NewHttpServer() {
 	r.Use(mw.CommonResponse())
 	r.NoRoute(mw.NotFound())
 
-	// 不应用JWTAuth中间件的接口
-	r.POST("/v1/mine/list")
+	r.GET("/v1/mine/list")
+	r.GET("/v1/carrier/list")
+
+	// 普通用户接口
+	normal := r.Group("/v1/normal")
+	normal.GET("/price/index")
+	normal.GET("/carrier/rank")
+	normal.GET("/price/timeline")
+	normal.GET("/line/price/index")
+	normal.GET("/mine/price/index")
+	normal.GET("/line/unitprice")
+
+	// vip用户结接口
+	vip := r.Group("/v1/vip")
+	vip.GET("/price/timeline")
+	vip.GET("/price/index")
+	vip.GET("/line/unitprice")
+	vip.GET("/price/radar")
+	vip.GET("/price/radar")
 
 	_ = r.Run(":" + conf.Conf.GetString("http.port"))
 }
