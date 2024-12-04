@@ -1,12 +1,11 @@
 package logger
 
 import (
-	"CMAIOT/internal/pkg/conf"
-	"github.com/spf13/viper"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 	"gopkg.in/natefinch/lumberjack.v2"
 	"os"
+	"shaanmei_backend/pkg/conf"
 	"strings"
 )
 
@@ -15,7 +14,7 @@ var Logger *zap.SugaredLogger
 func InitLogger(routineName string) {
 	//日志级别
 	lv := new(zapcore.Level)
-	if err := lv.UnmarshalText([]byte(viper.GetString("log.level"))); err != nil {
+	if err := lv.UnmarshalText([]byte(conf.Conf.GetString("log.level"))); err != nil {
 		_ = lv.UnmarshalText([]byte("info"))
 	}
 	path := conf.Conf.GetString("log.path")

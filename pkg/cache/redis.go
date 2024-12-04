@@ -1,17 +1,12 @@
 package cache
 
 import (
-	"CMAIOT/internal/pkg/conf"
-	"CMAIOT/internal/pkg/logger"
 	"github.com/go-redis/redis"
+	"shaanmei_backend/pkg/conf"
+	"shaanmei_backend/pkg/logger"
 )
 
 var gRedis *redis.Client
-
-const (
-	BlackListKey   = "TokenBlackList:"
-	PackageInfoKey = "PackageInfo:"
-)
 
 func InitRedis() error {
 	host := conf.Conf.GetString("redis.host")

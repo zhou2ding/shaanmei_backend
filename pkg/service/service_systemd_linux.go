@@ -170,6 +170,8 @@ StandardOutput=null
 Restart=always
 RestartSec=120
 EnvironmentFile=-/etc/sysconfig/{{.Name}}
+StandardOutput=null
+StandardError=null
 
 [Install]
 WantedBy=multi-user.target

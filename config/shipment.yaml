@@ -1,0 +1,16 @@
+log:
+  level: debug
+  path: ./logs
+  size: 20
+  expire: 5
+  limit: 10
+  stdout: true
+language: "zh"
+database:
+  freight_index:
+    link: "root:eptest$00@tcp(192.168.2.62:4000)/freight_index?parseTime=True&loc=Local"
+redis:
+  host: "192.168.2.62:3399"
+  password: "eptest$00"
+  num: 11
+enableHttps: false

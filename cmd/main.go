@@ -9,7 +9,6 @@ import (
 	"shaanmei_backend/pkg/conf"
 	"shaanmei_backend/pkg/logger"
 	"shaanmei_backend/pkg/service"
-	"shaanmei_backend/pkg/trans"
 	"shaanmei_backend/pkg/utils"
 	"shaanmei_backend/pkg/version"
 )
@@ -31,11 +30,7 @@ func main() {
 		conf.InitConf("./configs/shipment.yaml")
 	}
 
-	err := trans.InitTranslatorOfValidator(conf.Conf.GetString("language"))
-	if err != nil {
-		logger.Logger.Errorf("init validator error %s", err)
-		return
-	}
+	logger.InitLogger("shipment")
 
 	path, _ := os.Getwd()
 	p := &Program{}

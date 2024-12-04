@@ -8,6 +8,6 @@ import (
 
 func PauseExit() {
 	log.Println("按任意键退出")
-	keyboard.GetSingleKey()
+	_, _, _ = keyboard.GetSingleKey()
 	os.Exit(0)
 }
