@@ -28,9 +28,9 @@ func newMineSeriesDatum(db *gorm.DB, opts ...gen.DOOption) mineSeriesDatum {
 	tableName := _mineSeriesDatum.mineSeriesDatumDo.TableName()
 	_mineSeriesDatum.ALL = field.NewAsterisk(tableName)
 	_mineSeriesDatum.ID = field.NewInt32(tableName, "id")
-	_mineSeriesDatum.Name = field.NewString(tableName, "name")
-	_mineSeriesDatum.Longitude = field.NewFloat32(tableName, "longitude")
-	_mineSeriesDatum.Latitude = field.NewFloat32(tableName, "latitude")
+	_mineSeriesDatum.MineName = field.NewString(tableName, "mine_name")
+	_mineSeriesDatum.MineLongitude = field.NewFloat32(tableName, "mine_longitude")
+	_mineSeriesDatum.MineLatitude = field.NewFloat32(tableName, "mine_latitude")
 	_mineSeriesDatum.AvgShipmentPrice = field.NewFloat32(tableName, "avg_shipment_price")
 	_mineSeriesDatum.TotalShipmentVolume = field.NewFloat32(tableName, "total_shipment_volume")
 	_mineSeriesDatum.Timestamp = field.NewTime(tableName, "timestamp")
@@ -45,9 +45,9 @@ type mineSeriesDatum struct {
 
 	ALL                 field.Asterisk
 	ID                  field.Int32
-	Name                field.String
-	Longitude           field.Float32
-	Latitude            field.Float32
+	MineName            field.String
+	MineLongitude       field.Float32
+	MineLatitude        field.Float32
 	AvgShipmentPrice    field.Float32
 	TotalShipmentVolume field.Float32
 	Timestamp           field.Time
@@ -68,9 +68,9 @@ func (m mineSeriesDatum) As(alias string) *mineSeriesDatum {
 func (m *mineSeriesDatum) updateTableName(table string) *mineSeriesDatum {
 	m.ALL = field.NewAsterisk(table)
 	m.ID = field.NewInt32(table, "id")
-	m.Name = field.NewString(table, "name")
-	m.Longitude = field.NewFloat32(table, "longitude")
-	m.Latitude = field.NewFloat32(table, "latitude")
+	m.MineName = field.NewString(table, "mine_name")
+	m.MineLongitude = field.NewFloat32(table, "mine_longitude")
+	m.MineLatitude = field.NewFloat32(table, "mine_latitude")
 	m.AvgShipmentPrice = field.NewFloat32(table, "avg_shipment_price")
 	m.TotalShipmentVolume = field.NewFloat32(table, "total_shipment_volume")
 	m.Timestamp = field.NewTime(table, "timestamp")
@@ -104,9 +104,9 @@ func (m *mineSeriesDatum) GetFieldByName(fieldName string) (field.OrderExpr, boo
 func (m *mineSeriesDatum) fillFieldMap() {
 	m.fieldMap = make(map[string]field.Expr, 7)
 	m.fieldMap["id"] = m.ID
-	m.fieldMap["name"] = m.Name
-	m.fieldMap["longitude"] = m.Longitude
-	m.fieldMap["latitude"] = m.Latitude
+	m.fieldMap["mine_name"] = m.MineName
+	m.fieldMap["mine_longitude"] = m.MineLongitude
+	m.fieldMap["mine_latitude"] = m.MineLatitude
 	m.fieldMap["avg_shipment_price"] = m.AvgShipmentPrice
 	m.fieldMap["total_shipment_volume"] = m.TotalShipmentVolume
 	m.fieldMap["timestamp"] = m.Timestamp

@@ -34,7 +34,7 @@ func CommonResponse() gin.HandlerFunc {
 			}
 		} else {
 			data, _ := c.Get(global.DataCtx)
-			resp.Code, resp.Data = http.StatusOK, data
+			resp.Code, resp.Message, resp.Data = http.StatusOK, "success", data
 			c.JSON(http.StatusOK, resp)
 		}
 	}

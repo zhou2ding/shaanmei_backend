@@ -1,10 +1,10 @@
 package conf
 
 import (
-	"CMAIOT/internal/pkg/utils"
 	"fmt"
 	"github.com/fsnotify/fsnotify"
 	"github.com/spf13/viper"
+	"shaanmei_backend/pkg/utils"
 )
 
 var Conf *viper.Viper

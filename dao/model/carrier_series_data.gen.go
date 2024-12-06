@@ -13,7 +13,7 @@ const TableNameCarrierSeriesDatum = "carrier_series_data"
 // CarrierSeriesDatum mapped from table <carrier_series_data>
 type CarrierSeriesDatum struct {
 	ID               int32     `gorm:"column:id;primaryKey;autoIncrement:true" json:"id"`
-	Name             string    `gorm:"column:name" json:"name"`
+	CarrierName      string    `gorm:"column:carrier_name" json:"carrier_name"`
 	AvgShipmentPrice float32   `gorm:"column:avg_shipment_price" json:"avg_shipment_price"`
 	ShipmentVolume   float32   `gorm:"column:shipment_volume" json:"shipment_volume"`
 	Timestamp        time.Time `gorm:"column:timestamp" json:"timestamp"`

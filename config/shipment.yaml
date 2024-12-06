@@ -6,9 +6,11 @@ log:
   limit: 10
   stdout: true
 language: "zh"
+http:
+  port: 11000
 database:
   freight_index:
-    link: "root:eptest$00@tcp(192.168.2.62:4000)/freight_index?parseTime=True&loc=Local"
+    link: "root:5023152@tcp(120.78.179.209:6033)/freight_index?parseTime=True&loc=Local"
 redis:
   host: "192.168.2.62:3399"
   password: "eptest$00"

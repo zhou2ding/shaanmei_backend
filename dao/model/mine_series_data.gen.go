@@ -13,9 +13,9 @@ const TableNameMineSeriesDatum = "mine_series_data"
 // MineSeriesDatum mapped from table <mine_series_data>
 type MineSeriesDatum struct {
 	ID                  int32     `gorm:"column:id;primaryKey;autoIncrement:true" json:"id"`
-	Name                string    `gorm:"column:name" json:"name"`
-	Longitude           float32   `gorm:"column:longitude" json:"longitude"`
-	Latitude            float32   `gorm:"column:latitude" json:"latitude"`
+	MineName            string    `gorm:"column:mine_name" json:"mine_name"`
+	MineLongitude       float32   `gorm:"column:mine_longitude" json:"mine_longitude"`
+	MineLatitude        float32   `gorm:"column:mine_latitude" json:"mine_latitude"`
 	AvgShipmentPrice    float32   `gorm:"column:avg_shipment_price" json:"avg_shipment_price"`
 	TotalShipmentVolume float32   `gorm:"column:total_shipment_volume" json:"total_shipment_volume"`
 	Timestamp           time.Time `gorm:"column:timestamp" json:"timestamp"`

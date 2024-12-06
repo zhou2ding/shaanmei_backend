@@ -28,7 +28,7 @@ func newCarrierSeriesDatum(db *gorm.DB, opts ...gen.DOOption) carrierSeriesDatum
 	tableName := _carrierSeriesDatum.carrierSeriesDatumDo.TableName()
 	_carrierSeriesDatum.ALL = field.NewAsterisk(tableName)
 	_carrierSeriesDatum.ID = field.NewInt32(tableName, "id")
-	_carrierSeriesDatum.Name = field.NewString(tableName, "name")
+	_carrierSeriesDatum.CarrierName = field.NewString(tableName, "carrier_name")
 	_carrierSeriesDatum.AvgShipmentPrice = field.NewFloat32(tableName, "avg_shipment_price")
 	_carrierSeriesDatum.ShipmentVolume = field.NewFloat32(tableName, "shipment_volume")
 	_carrierSeriesDatum.Timestamp = field.NewTime(tableName, "timestamp")
@@ -43,7 +43,7 @@ type carrierSeriesDatum struct {
 
 	ALL              field.Asterisk
 	ID               field.Int32
-	Name             field.String
+	CarrierName      field.String
 	AvgShipmentPrice field.Float32
 	ShipmentVolume   field.Float32
 	Timestamp        field.Time
@@ -64,7 +64,7 @@ func (c carrierSeriesDatum) As(alias string) *carrierSeriesDatum {
 func (c *carrierSeriesDatum) updateTableName(table string) *carrierSeriesDatum {
 	c.ALL = field.NewAsterisk(table)
 	c.ID = field.NewInt32(table, "id")
-	c.Name = field.NewString(table, "name")
+	c.CarrierName = field.NewString(table, "carrier_name")
 	c.AvgShipmentPrice = field.NewFloat32(table, "avg_shipment_price")
 	c.ShipmentVolume = field.NewFloat32(table, "shipment_volume")
 	c.Timestamp = field.NewTime(table, "timestamp")
@@ -98,7 +98,7 @@ func (c *carrierSeriesDatum) GetFieldByName(fieldName string) (field.OrderExpr, 
 func (c *carrierSeriesDatum) fillFieldMap() {
 	c.fieldMap = make(map[string]field.Expr, 5)
 	c.fieldMap["id"] = c.ID
-	c.fieldMap["name"] = c.Name
+	c.fieldMap["carrier_name"] = c.CarrierName
 	c.fieldMap["avg_shipment_price"] = c.AvgShipmentPrice
 	c.fieldMap["shipment_volume"] = c.ShipmentVolume
 	c.fieldMap["timestamp"] = c.Timestamp
